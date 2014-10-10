@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="141ea114fe864be891b55d2a34bb3ef1" Name="Diagram1" ZoomLevel="90">
+        <EntityTypeShape EntityType="ElearningModel.Answer" Width="1.5" PointX="8.375" PointY="10.125" />
+        <EntityTypeShape EntityType="ElearningModel.Contact" Width="1.5" PointX="10.375" PointY="3.125" />
+        <EntityTypeShape EntityType="ElearningModel.Department" Width="1.5" PointX="0.5" PointY="5.5" />
+        <EntityTypeShape EntityType="ElearningModel.Employee" Width="1.5" PointX="4.25" PointY="0.5" />
+        <EntityTypeShape EntityType="ElearningModel.EmployeeSearch" Width="1.5" PointX="5.25" PointY="8.75" />
+        <EntityTypeShape EntityType="ElearningModel.Location" Width="1.5" PointX="10.875" PointY="0.5" />
+        <EntityTypeShape EntityType="ElearningModel.Policy" Width="1.5" PointX="2.625" PointY="5.625" />
+        <EntityTypeShape EntityType="ElearningModel.PolicySearch" Width="1.5" PointX="10.5" PointY="6" />
+        <EntityTypeShape EntityType="ElearningModel.Position" Width="1.5" PointX="2.25" PointY="0.875" />
+        <EntityTypeShape EntityType="ElearningModel.Question" Width="1.5" PointX="8.375" PointY="6.25" />
+        <EntityTypeShape EntityType="ElearningModel.Security" Width="1.5" PointX="10.5" PointY="8.125" />
+        <EntityTypeShape EntityType="ElearningModel.sysdiagram" Width="1.5" PointX="10.375" PointY="10.25" />
+        <AssociationConnector Association="ElearningModel.FK_Question_Answer" />
+        <AssociationConnector Association="ElearningModel.FK_Contact_Employee" />
+        <AssociationConnector Association="ElearningModel.FK_Policy_Department" />
+        <AssociationConnector Association="ElearningModel.FK_Location_Employee" />
+        <AssociationConnector Association="ElearningModel.FK_Position_Policy" />
+        <AssociationConnector Association="ElearningModel.FK_Question_Policy" />
+        <EntityTypeShape EntityType="ElearningModel.Score" Width="1.5" PointX="5" PointY="5" />
+        <AssociationConnector Association="ElearningModel.FK_Score_Employee" />
+        <AssociationConnector Association="ElearningModel.FK_Score_Question" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

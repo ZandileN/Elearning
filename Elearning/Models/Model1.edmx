@@ -1,0 +1,1010 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ElearningModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="ElearningModelStoreContainer">
+          <EntitySet Name="Answer" EntityType="ElearningModel.Store.Answer" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Contact" EntityType="ElearningModel.Store.Contact" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Department" EntityType="ElearningModel.Store.Department" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DepartmentPolicy" EntityType="ElearningModel.Store.DepartmentPolicy" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Employee" EntityType="ElearningModel.Store.Employee" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EmployeeSearch" EntityType="ElearningModel.Store.EmployeeSearch" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Location" EntityType="ElearningModel.Store.Location" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Policy" EntityType="ElearningModel.Store.Policy" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PolicySearch" EntityType="ElearningModel.Store.PolicySearch" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Position" EntityType="ElearningModel.Store.Position" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Progress" EntityType="ElearningModel.Store.Progress" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Question" EntityType="ElearningModel.Store.Question" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Score" EntityType="ElearningModel.Store.Score" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Security" EntityType="ElearningModel.Store.Security" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysdiagrams" EntityType="ElearningModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Contact_Employee" Association="ElearningModel.Store.FK_Contact_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Contact" EntitySet="Contact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DepartmentPolicy_Department" Association="ElearningModel.Store.FK_DepartmentPolicy_Department">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="DepartmentPolicy" EntitySet="DepartmentPolicy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DepartmentPolicy_Policy" Association="ElearningModel.Store.FK_DepartmentPolicy_Policy">
+            <End Role="Policy" EntitySet="Policy" />
+            <End Role="DepartmentPolicy" EntitySet="DepartmentPolicy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Department" Association="ElearningModel.Store.FK_Employee_Department">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Position" Association="ElearningModel.Store.FK_Employee_Position">
+            <End Role="Position" EntitySet="Position" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Location_Employee" Association="ElearningModel.Store.FK_Location_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Location" EntitySet="Location" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Position_Policy" Association="ElearningModel.Store.FK_Position_Policy">
+            <End Role="Policy" EntitySet="Policy" />
+            <End Role="Position" EntitySet="Position" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Progress_Employee" Association="ElearningModel.Store.FK_Progress_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Progress" EntitySet="Progress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Progress_Policy" Association="ElearningModel.Store.FK_Progress_Policy">
+            <End Role="Policy" EntitySet="Policy" />
+            <End Role="Progress" EntitySet="Progress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Question_Answer" Association="ElearningModel.Store.FK_Question_Answer">
+            <End Role="Answer" EntitySet="Answer" />
+            <End Role="Question" EntitySet="Question" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Question_Policy" Association="ElearningModel.Store.FK_Question_Policy">
+            <End Role="Policy" EntitySet="Policy" />
+            <End Role="Question" EntitySet="Question" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Score_Progress" Association="ElearningModel.Store.FK_Score_Progress">
+            <End Role="Progress" EntitySet="Progress" />
+            <End Role="Score" EntitySet="Score" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Score_Question" Association="ElearningModel.Store.FK_Score_Question">
+            <End Role="Question" EntitySet="Question" />
+            <End Role="Score" EntitySet="Score" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Answer">
+          <Key>
+            <PropertyRef Name="AnswerID" />
+            <PropertyRef Name="CorrectAnswer" />
+          </Key>
+          <Property Name="AnswerID" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="CorrectAnswer" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="Option1" Type="varchar" MaxLength="100" />
+          <Property Name="Option2" Type="varchar" MaxLength="100" />
+          <Property Name="Option3" Type="varchar" MaxLength="100" />
+          <Property Name="Option4" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Name="ContactID" Type="int" Nullable="false" />
+          <Property Name="EmployeeID" Type="int" />
+          <Property Name="CellNumber" Type="varchar" MaxLength="10" />
+          <Property Name="TellphoneNumber" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="Email" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="DepartmentID" />
+          </Key>
+          <Property Name="DepartmentID" Type="int" Nullable="false" />
+          <Property Name="DepartmentName" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DepartmentPolicy">
+          <Key>
+            <PropertyRef Name="DepPolicyID" />
+          </Key>
+          <Property Name="DepPolicyID" Type="int" Nullable="false" />
+          <Property Name="PolicyID" Type="int" />
+          <Property Name="Version" Type="int" />
+          <Property Name="DepartmentID" Type="int" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="int" Nullable="false" />
+          <Property Name="PositionID" Type="int" Nullable="false" />
+          <Property Name="DepartmentID" Type="int" Nullable="false" />
+          <Property Name="PersonnelNum" Type="int" Nullable="false" />
+          <Property Name="Firstname" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Lastname" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="HireDate" Type="date" />
+          <Property Name="ExitDate" Type="date" />
+        </EntityType>
+        <EntityType Name="EmployeeSearch">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="int" Nullable="false" />
+          <Property Name="Search" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="LocationID" />
+          </Key>
+          <Property Name="LocationID" Type="int" Nullable="false" />
+          <Property Name="EmployeeID" Type="int" />
+          <Property Name="BuildingName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Floorlevel" Type="int" Nullable="false" />
+          <Property Name="CubeName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="MoreDetails" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Policy">
+          <Key>
+            <PropertyRef Name="PolicyID" />
+            <PropertyRef Name="Version" />
+          </Key>
+          <Property Name="PolicyID" Type="int" Nullable="false" />
+          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="DepartmentID" Type="int" Nullable="false" />
+          <Property Name="PolicyName" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="DocumentBlob" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PolicySearch">
+          <Key>
+            <PropertyRef Name="PolicyID" />
+            <PropertyRef Name="Version" />
+          </Key>
+          <Property Name="PolicyID" Type="int" Nullable="false" />
+          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="Search" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="PositionID" />
+          </Key>
+          <Property Name="PositionID" Type="int" Nullable="false" />
+          <Property Name="PolicyID" Type="int" Nullable="false" />
+          <Property Name="Version" Type="int" />
+          <Property Name="PositionName" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Progress">
+          <Key>
+            <PropertyRef Name="ProgressID" />
+          </Key>
+          <Property Name="ProgressID" Type="int" Nullable="false" />
+          <Property Name="PolicyID" Type="int" />
+          <Property Name="Version" Type="int" />
+          <Property Name="EmployeeID" Type="int" />
+          <Property Name="Page" Type="int" />
+          <Property Name="Status" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="TotalMark" Type="int" />
+          <Property Name="Average" Type="int" />
+        </EntityType>
+        <EntityType Name="Question">
+          <Key>
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="QuestionID" Type="int" Nullable="false" />
+          <Property Name="AnswerID" Type="varchar" MaxLength="50" />
+          <Property Name="CorrectAnswer" Type="varchar" MaxLength="100" />
+          <Property Name="PolicyID" Type="int" />
+          <Property Name="Version" Type="int" />
+          <Property Name="Description" Type="varchar" MaxLength="200" />
+          <Property Name="QuestionMark" Type="int" />
+        </EntityType>
+        <EntityType Name="Score">
+          <Key>
+            <PropertyRef Name="ScoreID" />
+          </Key>
+          <Property Name="ScoreID" Type="int" Nullable="false" />
+          <Property Name="QuestionID" Type="int" />
+          <Property Name="ProgressID" Type="int" />
+          <Property Name="Mark" Type="int" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Security">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_Contact_Employee">
+          <End Role="Employee" Type="ElearningModel.Store.Employee" Multiplicity="0..1" />
+          <End Role="Contact" Type="ElearningModel.Store.Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="Contact">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DepartmentPolicy_Department">
+          <End Role="Department" Type="ElearningModel.Store.Department" Multiplicity="0..1" />
+          <End Role="DepartmentPolicy" Type="ElearningModel.Store.DepartmentPolicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="DepartmentID" />
+            </Principal>
+            <Dependent Role="DepartmentPolicy">
+              <PropertyRef Name="DepartmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DepartmentPolicy_Policy">
+          <End Role="Policy" Type="ElearningModel.Store.Policy" Multiplicity="0..1" />
+          <End Role="DepartmentPolicy" Type="ElearningModel.Store.DepartmentPolicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Policy">
+              <PropertyRef Name="PolicyID" />
+              <PropertyRef Name="Version" />
+            </Principal>
+            <Dependent Role="DepartmentPolicy">
+              <PropertyRef Name="PolicyID" />
+              <PropertyRef Name="Version" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Department">
+          <End Role="Department" Type="ElearningModel.Store.Department" Multiplicity="1" />
+          <End Role="Employee" Type="ElearningModel.Store.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="DepartmentID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="DepartmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Position">
+          <End Role="Position" Type="ElearningModel.Store.Position" Multiplicity="1" />
+          <End Role="Employee" Type="ElearningModel.Store.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="PositionID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="PositionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Location_Employee">
+          <End Role="Employee" Type="ElearningModel.Store.Employee" Multiplicity="0..1" />
+          <End Role="Location" Type="ElearningModel.Store.Location" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="Location">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Position_Policy">
+          <End Role="Policy" Type="ElearningModel.Store.Policy" Multiplicity="0..1" />
+          <End Role="Position" Type="ElearningModel.Store.Position" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Policy">
+              <PropertyRef Name="PolicyID" />
+              <PropertyRef Name="Version" />
+            </Principal>
+            <Dependent Role="Position">
+              <PropertyRef Name="PolicyID" />
+              <PropertyRef Name="Version" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Progress_Employee">
+          <End Role="Employee" Type="ElearningModel.Store.Employee" Multiplicity="0..1" />
+          <End Role="Progress" Type="ElearningModel.Store.Progress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="Progress">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Progress_Policy">
+          <End Role="Policy" Type="ElearningModel.Store.Policy" Multiplicity="0..1" />
+          <End Role="Progress" Type="ElearningModel.Store.Progress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Policy">
+              <PropertyRef Name="PolicyID" />
+              <PropertyRef Name="Version" />
+            </Principal>
+            <Dependent Role="Progress">
+              <PropertyRef Name="PolicyID" />
+              <PropertyRef Name="Version" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Question_Answer">
+          <End Role="Answer" Type="ElearningModel.Store.Answer" Multiplicity="0..1" />
+          <End Role="Question" Type="ElearningModel.Store.Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Answer">
+              <PropertyRef Name="AnswerID" />
+              <PropertyRef Name="CorrectAnswer" />
+            </Principal>
+            <Dependent Role="Question">
+              <PropertyRef Name="AnswerID" />
+              <PropertyRef Name="CorrectAnswer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Question_Policy">
+          <End Role="Policy" Type="ElearningModel.Store.Policy" Multiplicity="0..1" />
+          <End Role="Question" Type="ElearningModel.Store.Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Policy">
+              <PropertyRef Name="PolicyID" />
+              <PropertyRef Name="Version" />
+            </Principal>
+            <Dependent Role="Question">
+              <PropertyRef Name="PolicyID" />
+              <PropertyRef Name="Version" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Score_Progress">
+          <End Role="Progress" Type="ElearningModel.Store.Progress" Multiplicity="0..1" />
+          <End Role="Score" Type="ElearningModel.Store.Score" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Progress">
+              <PropertyRef Name="ProgressID" />
+            </Principal>
+            <Dependent Role="Score">
+              <PropertyRef Name="ProgressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Score_Question">
+          <End Role="Question" Type="ElearningModel.Store.Question" Multiplicity="0..1" />
+          <End Role="Score" Type="ElearningModel.Store.Score" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Question">
+              <PropertyRef Name="QuestionID" />
+            </Principal>
+            <Dependent Role="Score">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ElearningModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ElearningEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Answers" EntityType="ElearningModel.Answer" />
+          <EntitySet Name="Contacts" EntityType="ElearningModel.Contact" />
+          <EntitySet Name="Departments" EntityType="ElearningModel.Department" />
+          <EntitySet Name="DepartmentPolicies" EntityType="ElearningModel.DepartmentPolicy" />
+          <EntitySet Name="Employees" EntityType="ElearningModel.Employee" />
+          <EntitySet Name="EmployeeSearches" EntityType="ElearningModel.EmployeeSearch" />
+          <EntitySet Name="Locations" EntityType="ElearningModel.Location" />
+          <EntitySet Name="Policies" EntityType="ElearningModel.Policy" />
+          <EntitySet Name="PolicySearches" EntityType="ElearningModel.PolicySearch" />
+          <EntitySet Name="Positions" EntityType="ElearningModel.Position" />
+          <EntitySet Name="Progresses" EntityType="ElearningModel.Progress" />
+          <EntitySet Name="Questions" EntityType="ElearningModel.Question" />
+          <EntitySet Name="Scores" EntityType="ElearningModel.Score" />
+          <EntitySet Name="Securities" EntityType="ElearningModel.Security" />
+          <EntitySet Name="sysdiagrams" EntityType="ElearningModel.sysdiagram" />
+          <AssociationSet Name="FK_Question_Answer" Association="ElearningModel.FK_Question_Answer">
+            <End Role="Answer" EntitySet="Answers" />
+            <End Role="Question" EntitySet="Questions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contact_Employee" Association="ElearningModel.FK_Contact_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Contact" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DepartmentPolicy_Department" Association="ElearningModel.FK_DepartmentPolicy_Department">
+            <End Role="Department" EntitySet="Departments" />
+            <End Role="DepartmentPolicy" EntitySet="DepartmentPolicies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Department" Association="ElearningModel.FK_Employee_Department">
+            <End Role="Department" EntitySet="Departments" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DepartmentPolicy_Policy" Association="ElearningModel.FK_DepartmentPolicy_Policy">
+            <End Role="Policy" EntitySet="Policies" />
+            <End Role="DepartmentPolicy" EntitySet="DepartmentPolicies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Position" Association="ElearningModel.FK_Employee_Position">
+            <End Role="Position" EntitySet="Positions" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Location_Employee" Association="ElearningModel.FK_Location_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Location" EntitySet="Locations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Progress_Employee" Association="ElearningModel.FK_Progress_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Progress" EntitySet="Progresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Position_Policy" Association="ElearningModel.FK_Position_Policy">
+            <End Role="Policy" EntitySet="Policies" />
+            <End Role="Position" EntitySet="Positions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Progress_Policy" Association="ElearningModel.FK_Progress_Policy">
+            <End Role="Policy" EntitySet="Policies" />
+            <End Role="Progress" EntitySet="Progresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Question_Policy" Association="ElearningModel.FK_Question_Policy">
+            <End Role="Policy" EntitySet="Policies" />
+            <End Role="Question" EntitySet="Questions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Score_Progress" Association="ElearningModel.FK_Score_Progress">
+            <End Role="Progress" EntitySet="Progresses" />
+            <End Role="Score" EntitySet="Scores" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Score_Question" Association="ElearningModel.FK_Score_Question">
+            <End Role="Question" EntitySet="Questions" />
+            <End Role="Score" EntitySet="Scores" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Answer">
+          <Key>
+            <PropertyRef Name="AnswerID" />
+            <PropertyRef Name="CorrectAnswer" />
+          </Key>
+          <Property Type="String" Name="AnswerID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CorrectAnswer" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Option1" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Option2" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Option3" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Option4" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Questions" Relationship="ElearningModel.FK_Question_Answer" FromRole="Answer" ToRole="Question" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Type="Int32" Name="ContactID" Nullable="false" />
+          <Property Type="Int32" Name="EmployeeID" />
+          <Property Type="String" Name="CellNumber" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="TellphoneNumber" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Employee" Relationship="ElearningModel.FK_Contact_Employee" FromRole="Contact" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="DepartmentID" />
+          </Key>
+          <Property Type="Int32" Name="DepartmentID" Nullable="false" />
+          <Property Type="String" Name="DepartmentName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Description" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DepartmentPolicies" Relationship="ElearningModel.FK_DepartmentPolicy_Department" FromRole="Department" ToRole="DepartmentPolicy" />
+          <NavigationProperty Name="Employees" Relationship="ElearningModel.FK_Employee_Department" FromRole="Department" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="DepartmentPolicy">
+          <Key>
+            <PropertyRef Name="DepPolicyID" />
+          </Key>
+          <Property Type="Int32" Name="DepPolicyID" Nullable="false" />
+          <Property Type="Int32" Name="PolicyID" />
+          <Property Type="Int32" Name="Version" />
+          <Property Type="Int32" Name="DepartmentID" />
+          <NavigationProperty Name="Department" Relationship="ElearningModel.FK_DepartmentPolicy_Department" FromRole="DepartmentPolicy" ToRole="Department" />
+          <NavigationProperty Name="Policy" Relationship="ElearningModel.FK_DepartmentPolicy_Policy" FromRole="DepartmentPolicy" ToRole="Policy" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Type="Int32" Name="EmployeeID" Nullable="false" />
+          <Property Type="Int32" Name="PositionID" Nullable="false" />
+          <Property Type="Int32" Name="DepartmentID" Nullable="false" />
+          <Property Type="Int32" Name="PersonnelNum" Nullable="false" />
+          <Property Type="String" Name="Firstname" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Lastname" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="HireDate" Precision="0" />
+          <Property Type="DateTime" Name="ExitDate" Precision="0" />
+          <NavigationProperty Name="Contacts" Relationship="ElearningModel.FK_Contact_Employee" FromRole="Employee" ToRole="Contact" />
+          <NavigationProperty Name="Department" Relationship="ElearningModel.FK_Employee_Department" FromRole="Employee" ToRole="Department" />
+          <NavigationProperty Name="Position" Relationship="ElearningModel.FK_Employee_Position" FromRole="Employee" ToRole="Position" />
+          <NavigationProperty Name="Locations" Relationship="ElearningModel.FK_Location_Employee" FromRole="Employee" ToRole="Location" />
+          <NavigationProperty Name="Progresses" Relationship="ElearningModel.FK_Progress_Employee" FromRole="Employee" ToRole="Progress" />
+        </EntityType>
+        <EntityType Name="EmployeeSearch">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Type="Int32" Name="EmployeeID" Nullable="false" />
+          <Property Type="String" Name="Search" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="LocationID" />
+          </Key>
+          <Property Type="Int32" Name="LocationID" Nullable="false" />
+          <Property Type="Int32" Name="EmployeeID" />
+          <Property Type="String" Name="BuildingName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Floorlevel" Nullable="false" />
+          <Property Type="String" Name="CubeName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MoreDetails" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Employee" Relationship="ElearningModel.FK_Location_Employee" FromRole="Location" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="Policy">
+          <Key>
+            <PropertyRef Name="PolicyID" />
+            <PropertyRef Name="Version" />
+          </Key>
+          <Property Type="Int32" Name="PolicyID" Nullable="false" />
+          <Property Type="Int32" Name="Version" Nullable="false" />
+          <Property Type="Int32" Name="DepartmentID" Nullable="false" />
+          <Property Type="String" Name="PolicyName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DocumentBlob" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DepartmentPolicies" Relationship="ElearningModel.FK_DepartmentPolicy_Policy" FromRole="Policy" ToRole="DepartmentPolicy" />
+          <NavigationProperty Name="Positions" Relationship="ElearningModel.FK_Position_Policy" FromRole="Policy" ToRole="Position" />
+          <NavigationProperty Name="Progresses" Relationship="ElearningModel.FK_Progress_Policy" FromRole="Policy" ToRole="Progress" />
+          <NavigationProperty Name="Questions" Relationship="ElearningModel.FK_Question_Policy" FromRole="Policy" ToRole="Question" />
+        </EntityType>
+        <EntityType Name="PolicySearch">
+          <Key>
+            <PropertyRef Name="PolicyID" />
+            <PropertyRef Name="Version" />
+          </Key>
+          <Property Type="Int32" Name="PolicyID" Nullable="false" />
+          <Property Type="Int32" Name="Version" Nullable="false" />
+          <Property Type="String" Name="Search" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="PositionID" />
+          </Key>
+          <Property Type="Int32" Name="PositionID" Nullable="false" />
+          <Property Type="Int32" Name="PolicyID" Nullable="false" />
+          <Property Type="Int32" Name="Version" />
+          <Property Type="String" Name="PositionName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Employees" Relationship="ElearningModel.FK_Employee_Position" FromRole="Position" ToRole="Employee" />
+          <NavigationProperty Name="Policy" Relationship="ElearningModel.FK_Position_Policy" FromRole="Position" ToRole="Policy" />
+        </EntityType>
+        <EntityType Name="Progress">
+          <Key>
+            <PropertyRef Name="ProgressID" />
+          </Key>
+          <Property Type="Int32" Name="ProgressID" Nullable="false" />
+          <Property Type="Int32" Name="PolicyID" />
+          <Property Type="Int32" Name="Version" />
+          <Property Type="Int32" Name="EmployeeID" />
+          <Property Type="Int32" Name="Page" />
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="TotalMark" />
+          <Property Type="Int32" Name="Average" />
+          <NavigationProperty Name="Employee" Relationship="ElearningModel.FK_Progress_Employee" FromRole="Progress" ToRole="Employee" />
+          <NavigationProperty Name="Policy" Relationship="ElearningModel.FK_Progress_Policy" FromRole="Progress" ToRole="Policy" />
+          <NavigationProperty Name="Scores" Relationship="ElearningModel.FK_Score_Progress" FromRole="Progress" ToRole="Score" />
+        </EntityType>
+        <EntityType Name="Question">
+          <Key>
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Type="Int32" Name="QuestionID" Nullable="false" />
+          <Property Type="String" Name="AnswerID" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CorrectAnswer" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="PolicyID" />
+          <Property Type="Int32" Name="Version" />
+          <Property Type="String" Name="Description" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="QuestionMark" />
+          <NavigationProperty Name="Answer" Relationship="ElearningModel.FK_Question_Answer" FromRole="Question" ToRole="Answer" />
+          <NavigationProperty Name="Policy" Relationship="ElearningModel.FK_Question_Policy" FromRole="Question" ToRole="Policy" />
+          <NavigationProperty Name="Scores" Relationship="ElearningModel.FK_Score_Question" FromRole="Question" ToRole="Score" />
+        </EntityType>
+        <EntityType Name="Score">
+          <Key>
+            <PropertyRef Name="ScoreID" />
+          </Key>
+          <Property Type="Int32" Name="ScoreID" Nullable="false" />
+          <Property Type="Int32" Name="QuestionID" />
+          <Property Type="Int32" Name="ProgressID" />
+          <Property Type="Int32" Name="Mark" Nullable="false" />
+          <Property Type="DateTime" Name="Date" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Progress" Relationship="ElearningModel.FK_Score_Progress" FromRole="Score" ToRole="Progress" />
+          <NavigationProperty Name="Question" Relationship="ElearningModel.FK_Score_Question" FromRole="Score" ToRole="Question" />
+        </EntityType>
+        <EntityType Name="Security">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Type="Int32" Name="RoleID" Nullable="false" />
+          <Property Type="String" Name="Username" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Password" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Type="String" Name="name" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="principal_id" Nullable="false" />
+          <Property Type="Int32" Name="diagram_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="version" />
+          <Property Type="Binary" Name="definition" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Question_Answer">
+          <End Type="ElearningModel.Answer" Role="Answer" Multiplicity="0..1" />
+          <End Type="ElearningModel.Question" Role="Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Answer">
+              <PropertyRef Name="AnswerID" />
+              <PropertyRef Name="CorrectAnswer" />
+            </Principal>
+            <Dependent Role="Question">
+              <PropertyRef Name="AnswerID" />
+              <PropertyRef Name="CorrectAnswer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contact_Employee">
+          <End Type="ElearningModel.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="ElearningModel.Contact" Role="Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="Contact">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DepartmentPolicy_Department">
+          <End Type="ElearningModel.Department" Role="Department" Multiplicity="0..1" />
+          <End Type="ElearningModel.DepartmentPolicy" Role="DepartmentPolicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="DepartmentID" />
+            </Principal>
+            <Dependent Role="DepartmentPolicy">
+              <PropertyRef Name="DepartmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Department">
+          <End Type="ElearningModel.Department" Role="Department" Multiplicity="1" />
+          <End Type="ElearningModel.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="DepartmentID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="DepartmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DepartmentPolicy_Policy">
+          <End Type="ElearningModel.Policy" Role="Policy" Multiplicity="0..1" />
+          <End Type="ElearningModel.DepartmentPolicy" Role="DepartmentPolicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Policy">
+              <PropertyRef Name="PolicyID" />
+              <PropertyRef Name="Version" />
+            </Principal>
+            <Dependent Role="DepartmentPolicy">
+              <PropertyRef Name="PolicyID" />
+              <PropertyRef Name="Version" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Position">
+          <End Type="ElearningModel.Position" Role="Position" Multiplicity="1" />
+          <End Type="ElearningModel.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="PositionID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="PositionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Location_Employee">
+          <End Type="ElearningModel.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="ElearningModel.Location" Role="Location" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="Location">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Progress_Employee">
+          <End Type="ElearningModel.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="ElearningModel.Progress" Role="Progress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="Progress">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Position_Policy">
+          <End Type="ElearningModel.Policy" Role="Policy" Multiplicity="0..1" />
+          <End Type="ElearningModel.Position" Role="Position" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Policy">
+              <PropertyRef Name="PolicyID" />
+              <PropertyRef Name="Version" />
+            </Principal>
+            <Dependent Role="Position">
+              <PropertyRef Name="PolicyID" />
+              <PropertyRef Name="Version" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Progress_Policy">
+          <End Type="ElearningModel.Policy" Role="Policy" Multiplicity="0..1" />
+          <End Type="ElearningModel.Progress" Role="Progress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Policy">
+              <PropertyRef Name="PolicyID" />
+              <PropertyRef Name="Version" />
+            </Principal>
+            <Dependent Role="Progress">
+              <PropertyRef Name="PolicyID" />
+              <PropertyRef Name="Version" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Question_Policy">
+          <End Type="ElearningModel.Policy" Role="Policy" Multiplicity="0..1" />
+          <End Type="ElearningModel.Question" Role="Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Policy">
+              <PropertyRef Name="PolicyID" />
+              <PropertyRef Name="Version" />
+            </Principal>
+            <Dependent Role="Question">
+              <PropertyRef Name="PolicyID" />
+              <PropertyRef Name="Version" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Score_Progress">
+          <End Type="ElearningModel.Progress" Role="Progress" Multiplicity="0..1" />
+          <End Type="ElearningModel.Score" Role="Score" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Progress">
+              <PropertyRef Name="ProgressID" />
+            </Principal>
+            <Dependent Role="Score">
+              <PropertyRef Name="ProgressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Score_Question">
+          <End Type="ElearningModel.Question" Role="Question" Multiplicity="0..1" />
+          <End Type="ElearningModel.Score" Role="Score" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Question">
+              <PropertyRef Name="QuestionID" />
+            </Principal>
+            <Dependent Role="Score">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ElearningModelStoreContainer" CdmEntityContainer="ElearningEntities">
+          <EntitySetMapping Name="Answers">
+            <EntityTypeMapping TypeName="ElearningModel.Answer">
+              <MappingFragment StoreEntitySet="Answer">
+                <ScalarProperty Name="Option4" ColumnName="Option4" />
+                <ScalarProperty Name="Option3" ColumnName="Option3" />
+                <ScalarProperty Name="Option2" ColumnName="Option2" />
+                <ScalarProperty Name="Option1" ColumnName="Option1" />
+                <ScalarProperty Name="CorrectAnswer" ColumnName="CorrectAnswer" />
+                <ScalarProperty Name="AnswerID" ColumnName="AnswerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="ElearningModel.Contact">
+              <MappingFragment StoreEntitySet="Contact">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="TellphoneNumber" ColumnName="TellphoneNumber" />
+                <ScalarProperty Name="CellNumber" ColumnName="CellNumber" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departments">
+            <EntityTypeMapping TypeName="ElearningModel.Department">
+              <MappingFragment StoreEntitySet="Department">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+                <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DepartmentPolicies">
+            <EntityTypeMapping TypeName="ElearningModel.DepartmentPolicy">
+              <MappingFragment StoreEntitySet="DepartmentPolicy">
+                <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="PolicyID" ColumnName="PolicyID" />
+                <ScalarProperty Name="DepPolicyID" ColumnName="DepPolicyID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="ElearningModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="ExitDate" ColumnName="ExitDate" />
+                <ScalarProperty Name="HireDate" ColumnName="HireDate" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="PersonnelNum" ColumnName="PersonnelNum" />
+                <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+                <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeSearches">
+            <EntityTypeMapping TypeName="ElearningModel.EmployeeSearch">
+              <MappingFragment StoreEntitySet="EmployeeSearch">
+                <ScalarProperty Name="Search" ColumnName="Search" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Locations">
+            <EntityTypeMapping TypeName="ElearningModel.Location">
+              <MappingFragment StoreEntitySet="Location">
+                <ScalarProperty Name="MoreDetails" ColumnName="MoreDetails" />
+                <ScalarProperty Name="CubeName" ColumnName="CubeName" />
+                <ScalarProperty Name="Floorlevel" ColumnName="Floorlevel" />
+                <ScalarProperty Name="BuildingName" ColumnName="BuildingName" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Policies">
+            <EntityTypeMapping TypeName="ElearningModel.Policy">
+              <MappingFragment StoreEntitySet="Policy">
+                <ScalarProperty Name="DocumentBlob" ColumnName="DocumentBlob" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="PolicyName" ColumnName="PolicyName" />
+                <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="PolicyID" ColumnName="PolicyID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PolicySearches">
+            <EntityTypeMapping TypeName="ElearningModel.PolicySearch">
+              <MappingFragment StoreEntitySet="PolicySearch">
+                <ScalarProperty Name="Search" ColumnName="Search" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="PolicyID" ColumnName="PolicyID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Positions">
+            <EntityTypeMapping TypeName="ElearningModel.Position">
+              <MappingFragment StoreEntitySet="Position">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="PositionName" ColumnName="PositionName" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="PolicyID" ColumnName="PolicyID" />
+                <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Progresses">
+            <EntityTypeMapping TypeName="ElearningModel.Progress">
+              <MappingFragment StoreEntitySet="Progress">
+                <ScalarProperty Name="Average" ColumnName="Average" />
+                <ScalarProperty Name="TotalMark" ColumnName="TotalMark" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Page" ColumnName="Page" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="PolicyID" ColumnName="PolicyID" />
+                <ScalarProperty Name="ProgressID" ColumnName="ProgressID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Questions">
+            <EntityTypeMapping TypeName="ElearningModel.Question">
+              <MappingFragment StoreEntitySet="Question">
+                <ScalarProperty Name="QuestionMark" ColumnName="QuestionMark" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="PolicyID" ColumnName="PolicyID" />
+                <ScalarProperty Name="CorrectAnswer" ColumnName="CorrectAnswer" />
+                <ScalarProperty Name="AnswerID" ColumnName="AnswerID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Scores">
+            <EntityTypeMapping TypeName="ElearningModel.Score">
+              <MappingFragment StoreEntitySet="Score">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Mark" ColumnName="Mark" />
+                <ScalarProperty Name="ProgressID" ColumnName="ProgressID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="ScoreID" ColumnName="ScoreID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Securities">
+            <EntityTypeMapping TypeName="ElearningModel.Security">
+              <MappingFragment StoreEntitySet="Security">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="ElearningModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

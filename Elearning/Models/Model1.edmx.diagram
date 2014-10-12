@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="79d9acd803ce4b5c98181a7cbc5afd6e" Name="Diagram1">
+        <EntityTypeShape EntityType="ElearningModel.Answer" Width="1.5" PointX="0.5" PointY="16.875" />
+        <EntityTypeShape EntityType="ElearningModel.Contact" Width="1.5" PointX="3" PointY="18.375" />
+        <EntityTypeShape EntityType="ElearningModel.Department" Width="1.5" PointX="6" PointY="19.875" />
+        <EntityTypeShape EntityType="ElearningModel.DepartmentPolicy" Width="1.5" PointX="3" PointY="21.125" />
+        <EntityTypeShape EntityType="ElearningModel.Employee" Width="1.5" PointX="8.375" PointY="23.75" />
+        <EntityTypeShape EntityType="ElearningModel.EmployeeSearch" Width="1.5" PointX="15" PointY="24.375" />
+        <EntityTypeShape EntityType="ElearningModel.Location" Width="1.5" PointX="18" PointY="25.875" />
+        <EntityTypeShape EntityType="ElearningModel.Policy" Width="1.5" PointX="0.5" PointY="20.125" />
+        <EntityTypeShape EntityType="ElearningModel.PolicySearch" Width="1.5" PointX="3" PointY="24.125" />
+        <EntityTypeShape EntityType="ElearningModel.Position" Width="1.5" PointX="6" PointY="30.375" />
+        <EntityTypeShape EntityType="ElearningModel.Progress" Width="1.5" PointX="4.875" PointY="33.125" />
+        <EntityTypeShape EntityType="ElearningModel.Question" Width="1.5" PointX="11.125" PointY="28.5" />
+        <EntityTypeShape EntityType="ElearningModel.Score" Width="1.5" PointX="14" PointY="31.875" />
+        <EntityTypeShape EntityType="ElearningModel.Security" Width="1.5" PointX="18" PointY="36.375" />
+        <EntityTypeShape EntityType="ElearningModel.sysdiagram" Width="1.5" PointX="0.5" PointY="36.5" />
+        <AssociationConnector Association="ElearningModel.FK_Question_Answer" />
+        <AssociationConnector Association="ElearningModel.FK_Contact_Employee" />
+        <AssociationConnector Association="ElearningModel.FK_DepartmentPolicy_Department" />
+        <AssociationConnector Association="ElearningModel.FK_Employee_Department" />
+        <AssociationConnector Association="ElearningModel.FK_DepartmentPolicy_Policy" />
+        <AssociationConnector Association="ElearningModel.FK_Employee_Position" />
+        <AssociationConnector Association="ElearningModel.FK_Location_Employee" />
+        <AssociationConnector Association="ElearningModel.FK_Progress_Employee" />
+        <AssociationConnector Association="ElearningModel.FK_Position_Policy" />
+        <AssociationConnector Association="ElearningModel.FK_Progress_Policy" />
+        <AssociationConnector Association="ElearningModel.FK_Question_Policy" />
+        <AssociationConnector Association="ElearningModel.FK_Score_Progress" />
+        <AssociationConnector Association="ElearningModel.FK_Score_Question" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

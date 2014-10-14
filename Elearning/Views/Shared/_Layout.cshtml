@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type =" "text/css"/> 
+</head>
+<body>
+     @*Html.Partial("_LoginPartial")*@
+     <div id="header">
+            <!-- extra top links -->
+            <div id="links">
+                <a href="#">About us</a>
+                <a href="#">Help</a>
+                <a href="#">Contact Us</a>
+            </div>
+
+            <!-- navigation menu -->
+             <div id="navmenu">
+                <nav id="menu">
+                    <ul>
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li><a href="#">Employee</a></li>
+                        <li><a href="#">Details</a></li>
+                        <li><a href="#">Department</a></li>
+                        <li><a href="#">Policies</a></li>
+                        <li>@Html.ActionLink("Admin", "Admin", "Home")
+                            <ul>
+                                <li>@Html.ActionLink("Add Policy", "AddPolicy", "Home")</li>
+                                <li><a href="#">Add Question</a></li>
+                                <li><a href="#">Add Answer</a></li>
+                                <li><a href="#">Add Department</a></li>
+                                <li><a href="#">Stumbleupon</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class ="container">
+             @RenderSection( "featured", required: false )
+             @RenderBody()
+             
+            <footer>
+                <p>&copy; @DateTime.Now.Year Guysits about time we came up with a team name Didnt know what else to add in here. sigh!</p>
+            </footer>
+        </div>
+     
+</body>
+    
+</body>
+</html>
